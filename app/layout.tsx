@@ -3,6 +3,8 @@ import localFont from "next/font/local";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { constructMetadata } from "../lib/metadata";
+import { Header } from "../components/layout/Header";
+import { SmoothScrollProvider } from "../components/providers/SmoothScrollProvider";
 
 const neuePower = localFont({
   src: [
@@ -53,8 +55,15 @@ export default function RootLayout({
       lang="en"
       className={`${neuePower.variable} ${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col font-sans">{children}</body>
+      <body className=" flex flex-col font-sans bg-white  text-black">
+        <SmoothScrollProvider>
+          {/* <Header /> */}
+          <main className="flex-1 w-full">{children}</main>
+        </SmoothScrollProvider>
+      </body>
     </html>
   );
 }
+
+
 

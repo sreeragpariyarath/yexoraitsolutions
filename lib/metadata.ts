@@ -12,7 +12,7 @@ interface ConstructMetadataProps {
 export function constructMetadata({
   title,
   description = COMPANY_INFO.description,
-  image = "/logo/Main Logo 2.png",
+  image = "/logo/yexora-logo-full.png",
   canonical = "/",
   noIndex = false,
 }: ConstructMetadataProps = {}): Metadata {
@@ -81,7 +81,7 @@ export function constructMetadata({
     },
     icons: {
       icon: "/favicon.ico",
-      apple: "/logo/Main Logo.png",
+      apple: "/logo/yexora-icon.png",
     },
   };
 }

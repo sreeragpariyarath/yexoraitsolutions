@@ -1,11 +1,19 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f4f9fd;
-  --foreground: #0f172a;
+  --primary: #075399;
+  --primary-hover: #054179;
+  --black: #000000;
+  --white: #ffffff;
+  --background: #ffffff;
+  --foreground: #000000;
 }
 
 @theme inline {
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-black: var(--black);
+  --color-white: var(--white);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-neue-power), var(--font-geist-sans), sans-serif;
@@ -13,9 +21,19 @@
   --font-mono: var(--font-geist-mono), monospace;
 }
 
+@keyframes spinSlow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans);
 }
+
 
