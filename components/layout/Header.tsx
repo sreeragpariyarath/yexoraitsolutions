@@ -6,22 +6,21 @@ import Image from "next/image";
 import { Menu, X } from "lucide-react";
 
 const NAV_ITEMS = [
-  { label: "Services", href: "/services" },
-  { label: "Work", href: "/work" },
-  { label: "About", href: "/about" },
-  { label: "Process", href: "/process" },
+  { label: "VISION", href: "/vision" },
+  { label: "TECHNOLOGY", href: "/technology" },
+  { label: "EXPERIENCE", href: "/experience" },
+  { label: "SOLUTIONS", href: "/solutions" },
 ];
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="absolute top-4 z-50 w-full ">
-      {/* Liquid Glass Navbar Container */}
-      <div className="relative flex items-center justify-between h-16 px-4 sm:px-6  transition-all duration-300">
-        {/* Left Side: Brand Logo & Title */}
-        <Link href="/" className="flex items-center gap-1 group z-10">
-          <div className="relative w-6 h-6 overflow-hidden flex items-center justify-center group-hover:scale-105 transition-transform">
+    <header className="absolute top-4 z-50 w-full">
+      <div className="relative flex items-center justify-between h-16 px-4 sm:px-6 md:px-8 transition-all duration-300">
+       <div className="flex items-center gap-8 md:gap-12">
+         <Link href="/" className="flex items-center gap-1 group z-10">
+          <div className="relative w-8 h-8 overflow-hidden flex items-center justify-center group-hover:scale-105 transition-transform">
             <Image
               src="/logo/yexora-icon.png"
               alt="Yexora IT Solutions Logo"
@@ -31,38 +30,44 @@ export function Header() {
               priority
             />
           </div>
-          <span className="font-display text-xl font-medium tracking- text-white group-hover:text-[#075399] transition-colors">
-            Yexora IT Solutions
-          </span>
         </Link>
 
-        {/* Center: Desktop Navigation (Individual Liquid Glass Pills) */}
-        <nav className="hidden md:flex items-center gap-2.5 z-10">
+        <nav className="hidden md:flex items-center gap-7 lg:gap-10 z-10">
           {NAV_ITEMS.map((item) => (
             <Link
-              key={item.href}
+              key={item.label}
               href={item.href}
-              className="px-5 py-2 text-sm font-medium text-white rounded-full backdrop-blur-md border border-white/20 shadow-[0_2px_10px_rgba(7,83,153,0.06)] hover:bg-white/90 hover:border-[#075399]/30 hover:text-[#075399] hover:shadow-[0_4px_16px_rgba(7,83,153,0.12)] hover:-translate-y-0.5 transition-all duration-200"
+              className="text-xs sm:text-[13px] font-semibold tracking-[0.08em] uppercase text-slate-900/90 hover:text-black transition-colors"
             >
               {item.label}
             </Link>
           ))}
         </nav>
+       </div>
 
-        {/* Right Side: Contact Action Pill */}
         <div className="hidden md:flex items-center gap-3 z-10">
           <Link
             href="/contact"
-            className="relative px-5 py-2 text-sm font-semibold text-white rounded-full bg-[#075399] hover:bg-[#054179] shadow-md shadow-[#075399]/25 hover:shadow-lg hover:shadow-[#075399]/35 hover:-translate-y-0.5 transition-all duration-200 active:translate-y-0"
+            className="group relative inline-flex items-center justify-center px-7 py-2.5 overflow-hidden rounded-full bg-black text-white text-xs sm:text-[13px] font-bold tracking-[0.12em] uppercase border border-white/10 shadow-[0_4px_14px_rgba(0,0,0,0.18)] hover:shadow-[0_8px_25px_rgba(0,0,0,0.35)] hover:-translate-y-0.5 hover:scale-[1.02] active:scale-[0.98] active:translate-y-0 transition-all duration-300 ease-out cursor-pointer"
           >
-            Contact
+            {/* Luminous light-sweep sheen on hover */}
+            <span
+              className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-in-out bg-gradient-to-r from-transparent via-white/25 to-transparent pointer-events-none"
+              aria-hidden="true"
+            />
+            {/* Subtle top specular border line */}
+            <span
+              className="absolute inset-x-3 top-0 h-1px bg-linear-to-r from-transparent via-white/40 to-transparent pointer-events-none"
+              aria-hidden="true"
+            />
+            <span className="relative z-10">CONTACT US</span>
           </Link>
         </div>
 
         {/* Mobile Menu Toggle Button */}
         <button
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="md:hidden p-2 text-slate-700 hover:text-[#075399] rounded-full hover:bg-slate-100 transition-colors z-10"
+          className="md:hidden p-2 text-slate-700 hover:text-black rounded-full hover:bg-slate-100 transition-colors z-10"
           aria-label="Toggle Navigation Menu"
         >
           {mobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
@@ -75,10 +80,10 @@ export function Header() {
           <div className="flex flex-col gap-1">
             {NAV_ITEMS.map((item) => (
               <Link
-                key={item.href}
+                key={item.label}
                 href={item.href}
                 onClick={() => setMobileMenuOpen(false)}
-                className="px-4 py-2.5 text-base font-medium text-slate-800 hover:text-[#075399] hover:bg-slate-50 rounded-2xl transition-colors"
+                className="px-4 py-2.5 text-base font-medium text-slate-800 hover:text-black hover:bg-slate-50 rounded-2xl transition-colors"
               >
                 {item.label}
               </Link>
@@ -88,9 +93,13 @@ export function Header() {
             <Link
               href="/contact"
               onClick={() => setMobileMenuOpen(false)}
-              className="block w-full py-3 text-center text-base font-semibold text-white bg-[#075399] hover:bg-[#054179] rounded-2xl shadow-md transition-colors"
+              className="group relative flex items-center justify-center w-full py-3 overflow-hidden rounded-full bg-black text-white text-sm font-bold tracking-[0.12em] uppercase border border-white/10 shadow-lg hover:shadow-2xl transition-all duration-300"
             >
-              Contact
+              <span
+                className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-in-out bg-gradient-to-r from-transparent via-white/25 to-transparent pointer-events-none"
+                aria-hidden="true"
+              />
+              <span className="relative z-10">CONTACT US</span>
             </Link>
           </div>
         </div>

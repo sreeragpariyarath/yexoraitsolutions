@@ -1,46 +1,50 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Poppins } from "next/font/google";
 import "./globals.css";
 import { constructMetadata } from "../lib/metadata";
 import { Header } from "../components/layout/Header";
 import { SmoothScrollProvider } from "../components/providers/SmoothScrollProvider";
 
-const neuePower = localFont({
+const poppins = Poppins({
+  variable: "--font-poppins",
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700", "800"],
+  display: "swap",
+});
+
+const striker = localFont({
   src: [
     {
-      path: "../public/fonts/NeuePower-Light.ttf",
-      weight: "300",
-      style: "normal",
-    },
-    {
-      path: "../public/fonts/NeuePower-Regular-qo7lrz.ttf",
+      path: "../public/fonts/Striker-1GXl0.otf",
       weight: "400",
       style: "normal",
     },
     {
-      path: "../public/fonts/NeuePower-Medium.ttf",
-      weight: "500",
+      path: "../public/fonts/Striker PersonalUseOnly.ttf",
+      weight: "700",
+      style: "normal",
+    },
+  ],
+  variable: "--font-striker",
+  display: "swap",
+});
+
+const eloquia = localFont({
+  src: [
+    {
+      path: "../public/fonts/Typekiln - EloquiaText-ExtraLight.otf",
+      weight: "200",
       style: "normal",
     },
     {
-      path: "../public/fonts/NeuePower-Ultra.ttf",
+      path: "../public/fonts/Typekiln - EloquiaDisplay-ExtraBold.otf",
       weight: "800",
       style: "normal",
     },
   ],
-  variable: "--font-neue-power",
+  variable: "--font-eloquia",
   display: "swap",
-});
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
 });
 
 export const metadata: Metadata = constructMetadata();
@@ -53,17 +57,14 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${neuePower.variable} ${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${poppins.variable} ${striker.variable} ${eloquia.variable} h-full antialiased`}
     >
-      <body className=" flex flex-col font-sans bg-white  text-black">
+      <body className="flex flex-col font-sans bg-white text-black min-h-full">
         <SmoothScrollProvider>
-          {/* <Header /> */}
+          <Header />
           <main className="flex-1 w-full">{children}</main>
         </SmoothScrollProvider>
       </body>
     </html>
   );
 }
-
-
-

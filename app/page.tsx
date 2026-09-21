@@ -1,12 +1,9 @@
-import { ScrollVideoSection } from "../components/features/home/ScrollVideoSection";
+import { HeroSection } from "../components/features/home/HeroSection";
 
 export default function Home() {
   return (
     <main className="w-full">
-      <ScrollVideoSection videoSrc="/videos/hero-vr.mp4" />
+      <HeroSection />
     </main>
   );
 }
-
-
-
