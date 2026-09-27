@@ -13,7 +13,7 @@ export function BentoCard({ children, image, tone = "light", className = "" }: B
 
   return (
     <article
-      className={`group relative isolate overflow-hidden rounded-2xl p-6 sm:p-8 ${
+      className={`group relative isolate overflow-hidden rounded-lg p-6 sm:px-6${
         isDark ? "bg-[#111] text-white" : "bg-white text-[#111]"
       } ${className}`}
     >

@@ -6,6 +6,7 @@
   --black: #000000;
   --white: #ffffff;
   --background: #0b1624;
+  --surface: #f2f2f2;
   --foreground: #ffffff;
 }
 
@@ -15,6 +16,7 @@
   --color-black: var(--black);
   --color-white: var(--white);
   --color-background: var(--background);
+  --color-surface: var(--surface);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist), sans-serif;
   --font-striker: var(--font-striker), sans-serif;

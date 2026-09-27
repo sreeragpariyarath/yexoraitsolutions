@@ -8,7 +8,7 @@ export function ServicesSection() {
   const { index, label, watermark, title, items } = SERVICES_CONTENT;
 
   return (
-    <SectionShell id="services" index={index} label={label} watermark={watermark} className="bg-[#ebebe8]">
+    <SectionShell id="services" index={index} label={label} watermark={watermark} className="bg-surface">
       <Reveal>
         <DisplayTitle>{title}</DisplayTitle>
       </Reveal>

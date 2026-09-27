@@ -8,14 +8,16 @@ export function HeroSection() {
       aria-labelledby="hero-heading"
       className="sticky top-0 isolate h-svh min-h-160 w-full overflow-hidden bg-[#0b1624] text-white"
     >
-      <Image
-        src="/hero-section.png"
-        alt="Figure wearing a glowing neon-blue VR headset"
-        fill
-        preload
-        sizes="100vw"
-        className="-z-20 object-cover object-[68%_center] md:object-right"
-      />
+      <div className="absolute inset-0 -z-20">
+        <Image
+          src="/hero-section.png"
+          alt="Figure wearing a glowing neon-blue VR headset"
+          fill
+          preload
+          sizes="100vw"
+          className="object-cover object-[68%_center] md:object-right"
+        />
+      </div>
       <div
         aria-hidden="true"
         className="absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgba(9,19,32,0.75)_0%,rgba(9,19,32,0.2)_45%,transparent_70%),linear-gradient(0deg,rgba(9,19,32,0.85)_0%,transparent_35%)]"

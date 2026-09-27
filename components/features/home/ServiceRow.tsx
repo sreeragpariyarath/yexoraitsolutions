@@ -11,7 +11,7 @@ export function ServiceRow({ service }: ServiceRowProps) {
   const { title, description, works } = service;
 
   return (
-    <article className="sticky top-6 grid gap-8 border-t border-black/10 bg-[#ebebe8] py-10 first:border-t-0 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)] lg:gap-12 lg:py-14">
+    <article className="sticky top-6 grid gap-8 border-t border-black/10 bg-surface py-10 first:border-t-0 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)] lg:gap-12 lg:py-14">
       <div>
         <h3 className="text-[clamp(2rem,3.4vw,3.25rem)] font-medium leading-[1.05] tracking-[-0.04em]">{title}</h3>
         <p className="mt-5 max-w-lg text-base leading-relaxed text-black/70 sm:text-lg">{description}</p>

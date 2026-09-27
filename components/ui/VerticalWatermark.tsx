@@ -9,7 +9,7 @@ export function VerticalWatermark({ children, className = "" }: VerticalWatermar
   return (
     <p
       aria-hidden="true"
-      className={`hidden rotate-180 select-none font-heading text-[clamp(5rem,8vw,8.5rem)] font-extrabold leading-none tracking-[-0.05em] text-black/7 [writing-mode:vertical-rl] lg:block ${className}`}
+      className={`hidden rotate-180 select-none font-heading text-[clamp(4.5rem,7vw,7.25rem)] font-extrabold leading-none tracking-tighter text-black/7 [writing-mode:vertical-rl] lg:block ${className}`}
     >
       {children}
     </p>

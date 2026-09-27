@@ -11,7 +11,7 @@ export function FeaturedCard({ project }: FeaturedCardProps) {
   const { title, category, status, image } = project;
 
   return (
-    <article className="group sticky top-[4svh] bg-[#ebebe8] pb-8">
+    <article className="group sticky top-[4svh] bg-surface pb-8">
       <div className="relative h-[60svh] overflow-hidden rounded-2xl bg-black/10 sm:h-[78svh]">
         <Image
           src={image.src}
