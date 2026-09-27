@@ -5,8 +5,8 @@
   --primary-hover: #054179;
   --black: #000000;
   --white: #ffffff;
-  --background: #ffffff;
-  --foreground: #000000;
+  --background: #0b1624;
+  --foreground: #ffffff;
 }
 
 @theme inline {
@@ -21,6 +21,7 @@
   --font-striker: var(--font-striker), sans-serif;
   --font-eloquia: var(--font-eloquia), sans-serif;
   --font-display: var(--font-striker), var(--font-eloquia), sans-serif;
+  --font-heading: var(--font-inter-tight), sans-serif;
 }
 
 @keyframes spinSlow {

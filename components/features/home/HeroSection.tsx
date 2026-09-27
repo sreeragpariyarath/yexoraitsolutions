@@ -1,37 +1,62 @@
 import Image from "next/image";
+import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
+
+const SERVICES = [
+  "Virtual Reality",
+  "3D Visualization",
+  "Web Development",
+  "Web Applications",
+];
 
 export function HeroSection() {
   return (
-    <section className="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-gradient-to-b from-slate-50 via-slate-100/60 to-slate-200/40 pt-16">
-      {/* Background Watermark Headline */}
+    <section
+      aria-labelledby="hero-heading"
+      className="relative isolate h-svh min-h-160 w-full overflow-hidden bg-[#0b1624] text-white"
+    >
+      <Image
+        src="/hero-section.png"
+        alt="Figure wearing a glowing neon-blue VR headset"
+        fill
+        preload
+        sizes="100vw"
+        className="-z-20 object-cover object-[68%_center] md:object-right"
+      />
       <div
-        className="pointer-events-none select-none absolute top-[30%] sm:top-[28%] md:top-[26%] left-1/2 -translate-x-1/2 -translate-y-1/2 z-0 whitespace-nowrap leading-none"
         aria-hidden="true"
-      >
-        <span className="font-striker text-[11vw] font-bold tracking-[0.12em] uppercase text-slate-900/[0.06] drop-shadow-sm">
-          VISION ENGINE
-        </span>
-      </div>
+        className="absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgba(9,19,32,0.75)_0%,rgba(9,19,32,0.2)_45%,transparent_70%),linear-gradient(0deg,rgba(9,19,32,0.85)_0%,transparent_35%)]"
+      />
 
-      {/* Left Headline */}
-      <div className="absolute left-6 sm:left-12 lg:left-20 top-[42%] md:top-[49%] -translate-y-1/2 z-20 max-w-xs sm:max-w-sm lg:max-w-2xl pointer-events-none select-none">
-        <h1 className="font-sans text-xl sm:text-2xl md:text-3xl lg:text-[43px] font-medium tracking-tight text-slate-900 leading-[1.2]">
-          <span> Building digital worlds.</span>
-          <br />
-          <span className="pl-7"> Engineering what's next.</span>
+      <div className="flex h-full flex-col px-6 pb-6 pt-28 sm:px-10">
+        <ul className="space-y-1 text-base font-normal text-white/90 sm:text-lg">
+          {SERVICES.map((service) => (
+            <li key={service}>{service}</li>
+          ))}
+        </ul>
+
+        <h1
+          id="hero-heading"
+          className="mt-auto font-heading text-[clamp(4.5rem,15vw,13.5rem)] font-extrabold uppercase leading-[0.82] tracking-[-0.04em] sm:pl-[5vw]"
+        >
+          <span className="block">Build</span>
+          <span className="block">Beyond</span>
         </h1>
-      </div>
 
-      {/* Centered Character Frame */}
-      <div className="relative z-10 flex items-end justify-center w-full h-full max-w-6xl mx-auto px-4 translate-y-14 sm:translate-y-20">
-        <Image
-          src="/hero-character.png"
-          alt="Hero Character"
-          width={1448}
-          height={1086}
-          priority
-          className="max-h-[78vh] w-auto object-contain select-none pointer-events-none drop-shadow-[0_20px_50px_rgba(0,0,0,0.15)]"
-        />
+        <div className="mt-6 flex items-center justify-between border-t border-white/15 pt-4 text-xs font-bold uppercase tracking-tight sm:text-sm">
+          <span>Indore, India</span>
+          <Link
+            href="/contact"
+            className="group inline-flex items-center gap-1.5 rounded-full px-1 transition-colors hover:text-[#4da3ff] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
+          >
+            Start a project
+            <ArrowUpRight
+              size={16}
+              aria-hidden="true"
+              className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+            />
+          </Link>
+        </div>
       </div>
     </section>
   );

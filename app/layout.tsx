@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
-import { Poppins } from "next/font/google";
+import { Inter_Tight, Poppins } from "next/font/google";
 import "./globals.css";
 import { constructMetadata } from "../lib/metadata";
 import { Header } from "../components/layout/Header";
@@ -10,6 +10,13 @@ const poppins = Poppins({
   variable: "--font-poppins",
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700", "800"],
+  display: "swap",
+});
+
+const interTight = Inter_Tight({
+  variable: "--font-inter-tight",
+  subsets: ["latin"],
+  weight: ["700", "800"],
   display: "swap",
 });
 
@@ -57,9 +64,9 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${poppins.variable} ${striker.variable} ${eloquia.variable} h-full antialiased`}
+      className={`${poppins.variable} ${interTight.variable} ${striker.variable} ${eloquia.variable} h-full antialiased`}
     >
-      <body className="flex flex-col font-sans bg-white text-black min-h-full">
+      <body className="flex flex-col font-sans bg-background text-foreground min-h-full">
         <SmoothScrollProvider>
           <Header />
           <main className="flex-1 w-full">{children}</main>

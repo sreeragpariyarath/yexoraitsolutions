@@ -4,8 +4,10 @@
 
 - **Brand Primary Accent:** `#075399` (Yexora Blue)
 - **Primary Dark Hover:** `#054179`
-- **Core Background:** `#FFFFFF` (Clean White) / Liquid Glass Highlights
-- **Core Contrast Text:** `#000000` (Obsidian Black)
+- **Core Background:** `#0B1624` (Deep Navy) — dark, full-bleed imagery (neon-blue VR hero)
+- **Core Contrast Text:** `#FFFFFF` (White)
+- **Accent Glow / Hover:** `#4DA3FF`
+- **Display Type:** Inter Tight 800, uppercase, tight tracking (`font-heading`)
 
 ---
 
@@ -17,8 +19,8 @@
   --primary-hover: #054179;
   --black: #000000;
   --white: #ffffff;
-  --background: #ffffff;
-  --foreground: #000000;
+  --background: #0b1624;
+  --foreground: #ffffff;
 }
 ```
 
