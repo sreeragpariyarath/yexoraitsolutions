@@ -2,18 +2,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 
-const SERVICES = [
-  "Virtual Reality",
-  "3D Visualization",
-  "Web Development",
-  "Web Applications",
-];
-
 export function HeroSection() {
   return (
     <section
       aria-labelledby="hero-heading"
-      className="relative isolate h-svh min-h-160 w-full overflow-hidden bg-[#0b1624] text-white"
+      className="sticky top-0 isolate h-svh min-h-160 w-full overflow-hidden bg-[#0b1624] text-white"
     >
       <Image
         src="/hero-section.png"
@@ -28,16 +21,12 @@ export function HeroSection() {
         className="absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgba(9,19,32,0.75)_0%,rgba(9,19,32,0.2)_45%,transparent_70%),linear-gradient(0deg,rgba(9,19,32,0.85)_0%,transparent_35%)]"
       />
 
-      <div className="flex h-full flex-col px-6 pb-6 pt-28 sm:px-10">
-        <ul className="space-y-1 text-base font-normal text-white/90 sm:text-lg">
-          {SERVICES.map((service) => (
-            <li key={service}>{service}</li>
-          ))}
-        </ul>
+      <div className="flex h-full flex-col px-6 pb-6 pt-28 sm:px-8">
+     
 
         <h1
           id="hero-heading"
-          className="mt-auto font-heading text-[clamp(4.5rem,15vw,13.5rem)] font-extrabold uppercase leading-[0.82] tracking-[-0.04em] sm:pl-[5vw]"
+          className="mt-auto font-heading text-[clamp(3.25rem,11vw,10rem)] font-extrabold uppercase leading-[0.82] tracking-[-0.04em] sm:pl-[5vw]"
         >
           <span className="block">Build</span>
           <span className="block">Beyond</span>

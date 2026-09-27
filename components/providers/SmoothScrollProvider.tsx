@@ -1,34 +1,23 @@
 "use client";
 
-import { useEffect, ReactNode } from "react";
-import Lenis from "lenis";
+import type { ReactNode } from "react";
+import type { LenisOptions } from "lenis";
+import { ReactLenis } from "lenis/react";
+import "lenis/dist/lenis.css";
 
-interface SmoothScrollProviderProps {
-  children: ReactNode;
-}
+// Low lerp = slower, silkier catch-up. Lenis disables smoothing for prefers-reduced-motion by default.
+const LENIS_OPTIONS = {
+  lerp: 0.07,
+  smoothWheel: true,
+  wheelMultiplier: 0.9,
+  touchMultiplier: 1.2,
+  autoRaf: true,
+} satisfies LenisOptions;
 
-export function SmoothScrollProvider({ children }: SmoothScrollProviderProps) {
-  useEffect(() => {
-    const lenis = new Lenis({
-      duration: 1.2,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      smoothWheel: true,
-      wheelMultiplier: 1.0,
-      touchMultiplier: 1.5,
-    });
-
-    function raf(time: number) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
-
-    const rafId = requestAnimationFrame(raf);
-
-    return () => {
-      cancelAnimationFrame(rafId);
-      lenis.destroy();
-    };
-  }, []);
-
-  return <>{children}</>;
+export function SmoothScrollProvider({ children }: { children: ReactNode }) {
+  return (
+    <ReactLenis root options={LENIS_OPTIONS}>
+      {children}
+    </ReactLenis>
+  );
 }

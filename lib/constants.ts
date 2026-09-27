@@ -1,6 +1,6 @@
 export const COMPANY_INFO = {
   name: "Yexora IT Solutions Private Limited",
-  brandName: "Yexora",
+  brandName: "Yexora IT Solutions",
   tagline: "Immersive 3D Technologies & Modern Web Engineering",
   description:
     "Yexora IT Solutions Private Limited is an innovative technology company based in Indore, India. We engineer high-performance Virtual Reality experiences, interactive 3D visualizations, modern business websites, and scalable web applications.",

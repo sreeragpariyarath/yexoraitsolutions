@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { COMPANY_INFO, NAV_LINKS } from "../../lib/constants";
 
+
 export function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const closeMenu = () => setMenuOpen(false);
@@ -33,21 +34,24 @@ export function Header() {
         </nav>
       )}
 
-      <div className="relative flex h-20 items-center justify-between px-6 text-sm font-bold uppercase tracking-tight sm:px-10">
+      <div className="relative flex h-20 items-center justify-between px-6 text-sm font-bold uppercase tracking-tight sm:px-8">
         <Link
           href="/"
           onClick={closeMenu}
-          className="focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
+          className="flex gap-50 align-bottom focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
         >
-          {COMPANY_INFO.brandName}
+          {/* {COMPANY_INFO.brandName} */}
+          <img src="/logo/yexora-icon-white.png" alt="" className="w-8" />
+
+        <ul className="flex gap-5 text-md font-normal ">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Services</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
         </Link>
 
-        <a
-          href={`mailto:${COMPANY_INFO.email}`}
-          className="absolute left-1/2 hidden -translate-x-1/2 transition-colors hover:text-[#4da3ff] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white md:block"
-        >
-          {COMPANY_INFO.email}
-        </a>
+    
 
         <button
           type="button"

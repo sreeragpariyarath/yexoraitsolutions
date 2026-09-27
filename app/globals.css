@@ -16,8 +16,7 @@
   --color-white: var(--white);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-poppins), sans-serif;
-  --font-poppins: var(--font-poppins), sans-serif;
+  --font-sans: var(--font-geist), sans-serif;
   --font-striker: var(--font-striker), sans-serif;
   --font-eloquia: var(--font-eloquia), sans-serif;
   --font-display: var(--font-striker), var(--font-eloquia), sans-serif;
