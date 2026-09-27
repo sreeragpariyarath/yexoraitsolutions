@@ -14,9 +14,13 @@ export const COMPANY_INFO = {
     country: "India",
     postalCode: "452001",
   },
+  // "#" entries are placeholders until the real profile URLs are confirmed.
   socials: {
-    linkedin: "https://linkedin.com/company/yexora-it-solutions",
+    instagram: "#",
     twitter: "https://twitter.com/yexoraitsolutions",
+    linkedin: "https://linkedin.com/company/yexora-it-solutions",
+    youtube: "#",
+    facebook: "#",
     github: "https://github.com/yexoraitsolutions",
   },
 } as const;

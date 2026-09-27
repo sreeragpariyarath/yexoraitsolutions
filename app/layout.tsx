@@ -4,6 +4,7 @@ import { Geist, Inter_Tight } from "next/font/google";
 import "./globals.css";
 import { constructMetadata } from "../lib/metadata";
 import { Header } from "../components/layout/Header";
+import { Footer } from "../components/layout/Footer";
 import { SmoothScrollProvider } from "../components/providers/SmoothScrollProvider";
 
 const geist = Geist({
@@ -70,6 +71,7 @@ export default function RootLayout({
         <SmoothScrollProvider>
           <Header />
           <main className="flex-1 w-full">{children}</main>
+          <Footer />
         </SmoothScrollProvider>
       </body>
     </html>

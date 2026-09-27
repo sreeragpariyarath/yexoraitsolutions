@@ -1,5 +1,6 @@
 import Image from "next/image";
 import type { FeaturedProject } from "../../../data/featured";
+import { MediaCaption } from "../../ui/MediaCaption";
 
 type FeaturedCardProps = {
   project: FeaturedProject;
@@ -20,12 +21,7 @@ export function FeaturedCard({ project }: FeaturedCardProps) {
           className="object-cover transition-transform duration-1000 ease-out group-hover:scale-[1.03]"
         />
       </div>
-      <div className="mt-5 text-sm uppercase sm:text-base">
-        <h3 className="font-semibold tracking-tight">{title}</h3>
-        <p className="text-black/60">
-          {category} / {status}
-        </p>
-      </div>
+      <MediaCaption title={title} meta={`${category} / ${status}`} className="mt-5" />
     </article>
   );
 }
