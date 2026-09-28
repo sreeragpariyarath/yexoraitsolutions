@@ -18,7 +18,7 @@ export function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="relative z-10 overflow-hidden bg-black px-6 pb-8 pt-10 text-white sm:px-8">
+    <footer id="contact" className="relative z-10 overflow-hidden bg-black px-6 pb-8 pt-10 text-white sm:px-8">
       <div className="flex flex-col gap-5 border-b border-white/15 pb-5 text-sm font-semibold uppercase tracking-tight sm:text-base lg:flex-row lg:items-center lg:gap-40">
         <Link href="/" className={`shrink-0 ${FOCUS_RING}`}>
           {COMPANY_INFO.brandName}

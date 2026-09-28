@@ -12,6 +12,7 @@ const LENIS_OPTIONS = {
   wheelMultiplier: 0.9,
   touchMultiplier: 1.2,
   autoRaf: true,
+  anchors: true,
 } satisfies LenisOptions;
 
 export function SmoothScrollProvider({ children }: { children: ReactNode }) {

@@ -1,74 +1,78 @@
 "use client";
 
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import Link from "next/link";
-import { COMPANY_INFO, NAV_LINKS } from "../../lib/constants";
+import { MenuIcon } from "./MenuIcon";
+import { MenuOverlay, type NavItem } from "./MenuOverlay";
 
+const NAV_ITEMS: NavItem[] = [
+  { label: "About", href: "/#about" },
+  { label: "Works", href: "/#featured" },
+  { label: "Services", href: "/#services" },
+  { label: "Contact", href: "/#contact" },
+];
+
+const MENU_ITEMS: NavItem[] = [{ label: "Home", href: "/" }, ...NAV_ITEMS];
+
+const FOCUS_RING = "focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white";
+
+function Wordmark() {
+  return (
+    <Link href="/" className={`inline-flex items-center transition-opacity hover:opacity-90 ${FOCUS_RING}`}>
+      <span className="pt-1 font-bebas text-2xl leading-none tracking-widest text-white xl:text-3xl">YEXORA</span>
+    </Link>
+  );
+}
 
 export function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const closeMenu = () => setMenuOpen(false);
+  const closeMenu = useCallback(() => setMenuOpen(false), []);
+
+  const menuButton = (
+    <button
+      type="button"
+      onClick={() => setMenuOpen(true)}
+      aria-label="Open menu"
+      aria-expanded={menuOpen}
+      aria-controls="site-menu"
+      className={`group relative flex size-8 cursor-pointer items-center justify-center text-white ${FOCUS_RING}`}
+    >
+      <MenuIcon isOpen={menuOpen} />
+    </button>
+  );
 
   return (
-    <header className="absolute inset-x-0 top-0 z-50 text-white">
-      {menuOpen && (
-        <nav
-          id="site-menu"
-          aria-label="Primary"
-          onKeyDown={(event) => event.key === "Escape" && closeMenu()}
-          className="fixed inset-0 flex flex-col justify-center bg-[#07101c]/95 px-6 backdrop-blur-xl sm:px-10"
-        >
-          <ul className="space-y-2">
-            {NAV_LINKS.map((link) => (
-              <li key={link.href}>
-                <Link
-                  href={link.href}
-                  onClick={closeMenu}
-                  className="font-heading text-5xl font-extrabold uppercase tracking-[-0.03em] text-white/85 transition-colors hover:text-[#4da3ff] focus-visible:text-[#4da3ff] focus-visible:outline-none sm:text-7xl"
-                >
-                  {link.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
+    <header className="absolute inset-x-0 top-0 z-50 px-4 pt-5 sm:px-8">
+      <div className="hidden w-full grid-cols-12 items-end gap-5 lg:grid xl:gap-8">
+        <div className="col-span-3 border-b border-white/35 pb-3">
+          <Wordmark />
+        </div>
+
+        <nav aria-label="Primary" className="col-span-8 grid grid-cols-4 gap-5 xl:gap-8">
+          {NAV_ITEMS.map((item) => (
+            <Link
+              key={item.label}
+              href={item.href}
+              className={`group flex items-center gap-2.5 border-b border-white/35 pb-3 text-xs font-semibold uppercase tracking-widest text-white/90 transition-colors hover:text-white xl:text-sm ${FOCUS_RING}`}
+            >
+              <span
+                aria-hidden="true"
+                className="size-2.5 shrink-0 rounded-full border border-white/70 transition-all group-hover:border-white group-hover:bg-white/20"
+              />
+              {item.label}
+            </Link>
+          ))}
         </nav>
-      )}
 
-      <div className="relative flex h-20 items-center justify-between px-6 text-sm font-bold uppercase tracking-tight sm:px-8">
-        <Link
-          href="/"
-          onClick={closeMenu}
-          className="flex gap-50 align-bottom focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
-        >
-          {/* {COMPANY_INFO.brandName} */}
-          <img src="/logo/yexora-icon-white.png" alt="" className="w-8" />
-
-        <ul className="flex gap-5 text-md font-normal ">
-          <li><a href="#">Home</a></li>
-          <li><a href="#">About</a></li>
-          <li><a href="#">Services</a></li>
-          <li><a href="#">Contact</a></li>
-        </ul>
-        </Link>
-
-    
-
-        <button
-          type="button"
-          onClick={() => setMenuOpen((open) => !open)}
-          aria-expanded={menuOpen}
-          aria-controls="site-menu"
-          aria-label={menuOpen ? "Close menu" : "Open menu"}
-          className="group flex h-10 w-12 flex-col items-end justify-center gap-2 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
-        >
-          <span
-            className={`block h-px bg-white transition-all duration-300 ${menuOpen ? "w-9 translate-y-[4.5px] rotate-45" : "w-11"}`}
-          />
-          <span
-            className={`block h-px bg-white transition-all duration-300 ${menuOpen ? "w-9 translate-y-[-4.5px] -rotate-45" : "w-7 group-hover:w-11"}`}
-          />
-        </button>
+        <div className="col-span-1 flex justify-center border-b border-white/35 pb-3">{menuButton}</div>
       </div>
+
+      <div className="flex items-center justify-between border-b border-white/35 pb-3 lg:hidden">
+        <Wordmark />
+        {menuButton}
+      </div>
+
+      <MenuOverlay open={menuOpen} onClose={closeMenu} items={MENU_ITEMS} />
     </header>
   );
 }

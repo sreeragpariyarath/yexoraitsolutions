@@ -23,6 +23,9 @@
   --font-eloquia: var(--font-eloquia), sans-serif;
   --font-display: var(--font-striker), var(--font-eloquia), sans-serif;
   --font-heading: var(--font-inter-tight), sans-serif;
+  --font-bebas: var(--font-bebas-neue), Arial, sans-serif;
+  --font-poppins: var(--font-poppins-sans), sans-serif;
+  --color-accent: #2f6bff;
 }
 
 @keyframes spinSlow {

@@ -1,52 +1,71 @@
 import Image from "next/image";
-import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
+import { PixelMark } from "../../ui/PixelMark";
+import { SocialLinks } from "../../ui/SocialLinks";
 
+const TEXT_SHADOW = "drop-shadow-[0_2px_16px_rgba(0,0,0,0.25)]";
+
+// The hero is 150svh tall and scrolls normally until its bottom edge meets the viewport's bottom.
+// sticky with top: -50svh (viewport height minus hero height) then pins it there while
+// AboutSection, next in flow, slides up over it.
 export function HeroSection() {
   return (
     <section
       aria-labelledby="hero-heading"
-      className="sticky top-0 isolate h-svh min-h-160 w-full overflow-hidden bg-[#0b1624] text-white"
+      className="sticky -top-[50svh] isolate flex h-[150svh] w-full flex-col items-center overflow-hidden bg-[#0a4bff] text-white"
     >
-      <div className="absolute inset-0 -z-20">
-        <Image
-          src="/hero-section.png"
-          alt="Figure wearing a glowing neon-blue VR headset"
-          fill
-          preload
-          sizes="100vw"
-          className="object-cover object-[68%_center] md:object-right"
-        />
-      </div>
-      <div
-        aria-hidden="true"
-        className="absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgba(9,19,32,0.75)_0%,rgba(9,19,32,0.2)_45%,transparent_70%),linear-gradient(0deg,rgba(9,19,32,0.85)_0%,transparent_35%)]"
+      <Image
+        src="/hero-image.png"
+        alt="Person wearing a VR headset, lit in a blue-to-cyan gradient"
+        fill
+        preload
+        sizes="100vw"
+        className="-z-10 object-cover object-center"
       />
 
-      <div className="flex h-full flex-col px-6 pb-6 pt-28 sm:px-8">
-     
+      {/* Clears the absolutely positioned site header. */}
+      <div aria-hidden="true" className="h-17 shrink-0" />
 
+      <div className="pointer-events-none flex w-full select-none justify-center px-2 pt-[4vh] sm:pt-[6vh] lg:pt-[10vh]">
         <h1
           id="hero-heading"
-          className="mt-auto font-heading text-[clamp(3.25rem,11vw,10rem)] font-extrabold uppercase leading-[0.82] tracking-[-0.04em] sm:pl-[5vw]"
+          className="whitespace-nowrap text-center font-bebas text-[14.5vw] font-bold uppercase leading-none"
         >
-          <span className="block">Build</span>
-          <span className="block">Beyond</span>
+          Yexora IT Solutions
         </h1>
+      </div>
 
-        <div className="mt-6 flex items-center justify-between border-t border-white/15 pt-4 text-xs font-bold uppercase tracking-tight sm:text-sm">
-          <span>Indore, India</span>
-          <Link
-            href="/contact"
-            className="group inline-flex items-center gap-1.5 rounded-full px-1 transition-colors hover:text-[#4da3ff] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
-          >
-            Start a project
-            <ArrowUpRight
-              size={16}
-              aria-hidden="true"
-              className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
-            />
-          </Link>
+      <div
+        className={`absolute inset-x-0 top-[52%] flex flex-col gap-6 px-6 sm:px-10 lg:top-1/2 lg:flex-row lg:items-center lg:justify-between lg:gap-12 lg:px-[5.2vw] ${TEXT_SHADOW}`}
+      >
+        <h2 className="font-bebas text-[15vw] uppercase leading-[0.92] tracking-[-0.035em] sm:text-[10vw] lg:text-[6.5vw]">
+          Design-first
+          <br />
+          Digital Agency
+        </h2>
+
+        {/* TODO: unverified claims ("multi-awarded", "since 2006") — replace with real facts before launch. */}
+        <p className="max-w-[28em] font-poppins text-base uppercase leading-[1.45] tracking-[0.01em] sm:text-lg lg:max-w-[24em] lg:text-[1.3vw]">
+          A multi-awarded digital studio crafting immersive &amp; interactive experiences for global brands
+          since 2006.
+        </p>
+      </div>
+
+      <div
+        className={`absolute inset-x-0 bottom-[6%] flex flex-col gap-8 px-6 sm:bottom-auto sm:top-[84%] sm:flex-row sm:items-center sm:justify-between sm:px-10 lg:px-[5.2vw] ${TEXT_SHADOW}`}
+      >
+        <div className="flex items-center gap-4 font-poppins text-lg font-medium lg:gap-[1vw] lg:text-[1.4vw]">
+          <span>Follow us</span>
+          <span aria-hidden="true" className="h-px w-12 bg-white/80 lg:w-[2.8vw]" />
+          <SocialLinks iconClassName="size-6 lg:size-[1.4vw]" />
+        </div>
+
+        <div className="flex items-center gap-5 lg:gap-[1.8vw]">
+          <PixelMark className="size-14 shrink-0 lg:size-[3.6vw]" />
+          <div>
+            {/* TODO: unverified figure — confirm or replace before launch. */}
+            <p className="font-bebas text-5xl leading-none tracking-[-0.01em] lg:text-[3.1vw]">$200M+</p>
+            <p className="mt-2 font-poppins text-sm uppercase lg:mt-[0.5vw] lg:text-[1.1vw]">Raised by clients</p>
+          </div>
         </div>
       </div>
     </section>

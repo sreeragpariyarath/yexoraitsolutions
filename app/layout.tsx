@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
-import { Geist, Inter_Tight } from "next/font/google";
+import { Bebas_Neue, Geist, Inter_Tight, Poppins } from "next/font/google";
 import "./globals.css";
 import { constructMetadata } from "../lib/metadata";
 import { Header } from "../components/layout/Header";
@@ -18,6 +18,20 @@ const interTight = Inter_Tight({
   variable: "--font-inter-tight",
   subsets: ["latin"],
   weight: ["700", "800"],
+  display: "swap",
+});
+
+const bebasNeue = Bebas_Neue({
+  variable: "--font-bebas-neue",
+  subsets: ["latin"],
+  weight: "400",
+  display: "swap",
+});
+
+const poppins = Poppins({
+  variable: "--font-poppins-sans",
+  subsets: ["latin"],
+  weight: ["400", "500"],
   display: "swap",
 });
 
@@ -65,7 +79,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geist.variable} ${interTight.variable} ${striker.variable} ${eloquia.variable} h-full antialiased`}
+      className={`${geist.variable} ${interTight.variable} ${bebasNeue.variable} ${poppins.variable} ${striker.variable} ${eloquia.variable} h-full antialiased`}
     >
       <body className="flex flex-col font-sans bg-background text-foreground min-h-full">
         <SmoothScrollProvider>
