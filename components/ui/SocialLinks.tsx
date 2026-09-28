@@ -20,9 +20,12 @@ const SOCIALS: { label: string; href: string; icon: ReactNode }[] = [
 
 type SocialLinksProps = {
   iconClassName?: string;
+  tone?: "light" | "dark";
 };
 
-export function SocialLinks({ iconClassName = "size-4" }: SocialLinksProps) {
+export function SocialLinks({ iconClassName = "size-4", tone = "light" }: SocialLinksProps) {
+  const color = tone === "light" ? "text-white focus-visible:outline-white" : "text-[#111] focus-visible:outline-[#111]";
+
   return (
     <ul className="flex items-center gap-4">
       {SOCIALS.map((social) => (
@@ -32,7 +35,7 @@ export function SocialLinks({ iconClassName = "size-4" }: SocialLinksProps) {
             aria-label={social.label}
             target="_blank"
             rel="noopener noreferrer"
-            className="block text-white transition-colors hover:text-accent focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
+            className={`block transition-colors hover:text-accent focus-visible:outline-2 focus-visible:outline-offset-4 ${color}`}
           >
             <svg viewBox="0 0 24 24" aria-hidden="true" className={`fill-current ${iconClassName}`}>
               {social.icon}

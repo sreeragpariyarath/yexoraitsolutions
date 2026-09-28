@@ -9,7 +9,7 @@ const NAV_ITEMS: NavItem[] = [
   { label: "About", href: "/#about" },
   { label: "Works", href: "/#featured" },
   { label: "Services", href: "/#services" },
-  { label: "Contact", href: "/#contact" },
+  { label: "Contact", href: "/contact" },
 ];
 
 const MENU_ITEMS: NavItem[] = [{ label: "Home", href: "/" }, ...NAV_ITEMS];
